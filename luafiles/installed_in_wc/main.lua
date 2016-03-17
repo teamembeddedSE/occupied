@@ -10,9 +10,8 @@ GPIO2 = 4
 AVAILABLE = 0
 OCCUPIED = 1
 
-host = "192.168.153.206"
+host = "toa.teamembedded.se"
 
---print("/set.php?bathroomID=".. SensorID .."&status=" .. AVAILABLE)
 gpio.mode(GPIO0,gpio.OUTPUT) -- GPIO0 sets as OUTPUT
 gpio.write(GPIO0, gpio.HIGH) -- Holds CH_PD HIGH
 gpio.mode(GPIO2,gpio.INT,gpio.PULLUP) -- Reads if door is closed

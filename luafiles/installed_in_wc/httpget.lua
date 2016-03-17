@@ -1,5 +1,3 @@
-
-
 function doGet(host,request)
 
 	conn=net.createConnection(net.TCP, 0) 
