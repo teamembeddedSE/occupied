@@ -32,9 +32,11 @@ occupied
 </li>
 <li>
 <figure>
-<img id='toa_1' src='img/sign_orange.gif ' alt='2' title='2' /><figurecaption><p>Toa Stora salen</p><p id='status_1'>Troligen ledig</p></figurecaption></figure>
+<img id='toa_1' src='img/sign_green.gif ' alt='0' title='0' /><figurecaption><p>Toa Stora salen</p><p id='status_1'>Troligen ledig</p></figurecaption></figure>
 </li>
-<li><figure><img id='toa_2' src='img/sign_green.gif ' alt='0' title='0' /><figurecaption><p>Toa Korridor</p><p id='status_2'>Ledig</p></figurecaption></figure>
+<li>
+<figure>
+<img id='toa_2' src='img/sign_green.gif ' alt='0' title='0' /><figurecaption><p>Toa Korridor</p><p id='status_2'>Ledig</p></figurecaption></figure>
 </li>
 </ul>
 </div>
@@ -49,6 +51,7 @@ occupied
          (function poll() {
            setTimeout(function() {
                 $.ajax({ url: "get.php", success: function(data) {
+                if (data.length > 0) {
                 var arr = data.split("|");
                 
                 $("#toa_0").attr("src", "img/"+arr[0]+".gif");
@@ -59,16 +62,16 @@ occupied
                 
                 $("#toa_2").attr("src", "img/"+arr[4]+".gif");
                 $("#status_2").text(arr[5]);
-                               
+                };
                }, dataType: "text", cache: false, complete: poll });
-                clearconsole();
+                    clearconsole();
             }, 1000);
         })();
     });
     function clearconsole() { 
   console.log(window.console);
   if(window.console || window.console.firebug) {
-   console.clear();
+   //console.clear();
   }
 }
 </script>    

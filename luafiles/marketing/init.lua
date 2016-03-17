@@ -1,7 +1,7 @@
-if wifi.sta.getip()==nil then
-	wifi.setmode(wifi.STATION)
-	wifi.sta.config("mobilelink","Winzellskt")
-end
+--if wifi.sta.getip()==nil then
+--	wifi.setmode(wifi.STATION)
+--	wifi.sta.config("mobilelink","Winzellskt")
+--end
 
 tmr.alarm(2,1000, 1, function() 
 

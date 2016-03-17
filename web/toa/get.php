@@ -1,4 +1,9 @@
 <?php
+
+// Turn off all error reporting
+error_reporting(0);
+
+
    class MyDB extends SQLite3
    {
       function __construct()
@@ -8,7 +13,7 @@
    }
    $db = new MyDB();
    if(!$db){
-      echo $db->lastErrorMsg();
+      //echo $db->lastErrorMsg();
    } else {
       //echo "Opened database successfully\n";
    }
@@ -26,6 +31,8 @@
         break;
         case 2:
             echo "sign_orange|Troligen ledig|";
+        default:
+            echo "";
         break;
         }
 
