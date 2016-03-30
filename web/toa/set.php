@@ -1,4 +1,9 @@
 <?php
+
+//Turn off all error reporting
+error_reporting(0);
+
+
    class MyDB extends SQLite3
    {
       function __construct()
@@ -6,9 +11,15 @@
          $this->open('.data/wc.db');
       }
    }
+
+$success = false;
+
+while (($success != true) and ($tries < 3)){
+
    $db = new MyDB();
+
    if(!$db){
-      echo $db->lastErrorMsg();
+      //echo $db->lastErrorMsg();
    } else {
       //echo "Opened database successfully\n";
    }
@@ -24,12 +35,17 @@
     //echo $sql;
    $ret = $db->exec($sql);
    if(!$ret){
-      echo $db->lastErrorMsg();
+      //echo $db->lastErrorMsg();
    } else {
       echo $db->changes();
+      $success = true;
    }
 
    }
 
    $db->close();
+
+    $tries = $tries + 1;
+
+} //end while
 ?>
