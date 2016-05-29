@@ -38,3 +38,6 @@ The ESP module is programmed with Lua and you will find the code in this reposit
 
 ************************************************************************************/
 
+Power saving tips
+https://github.com/z2amiller/sensorboard/blob/master/PowerSaving.md
+
