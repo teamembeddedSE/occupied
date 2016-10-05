@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8"/>
+
+<title>Fri nödutgång | Inbyggda System</title>
+   <link rel='icon' href='favicon.ico'/>
+   <link rel='stylesheet' type='text/css' href='css/style.css'/>
+   <link rel='stylesheet' type='text/css' href='css/figure.css'/>
+</head>
+
+<body>
+	<div id="wrapper">
+		<header>
+			<h2>occupied</h2>
+		</header>
+		
+		<div id="content">
+			<div id="wideContent">
+			<ul id="room">
+				<li>
+				<figure>
+					<img id='toa_0' src='img/sign_green.gif ' alt='0' title='0' /><figurecaption><p>Toa IS</p><p id='status_0'>Ledig</p></figurecaption>
+				</figure>
+				</li>
+				<li>
+				<figure>
+					<img id='toa_1' src='img/sign_green.gif ' alt='0' title='0' /><figurecaption><p>Toa Stora salen</p><p id='status_1'>Ledig</p></figurecaption>
+				</figure>
+				</li>
+				<li>
+				<figure>
+				<img id='toa_2' src='img/sign_green.gif ' alt='0' title='0' /><figurecaption><p>Toa Korridor</p><p id='status_2'>Ledig</p></figurecaption>
+					</figure>
+				</li>
+				</ul>
+			</div>
+			<footer>
+				<hr />Team Embedded - Projekt 2015    
+			</footer>
+		</div>
+	</div>		
+		<div id="foooter">
+			<img width="400" height="37" src="img/logga-molk.png">
+		</div>
+
+	<script src='http://code.jquery.com/jquery-2.1.1.min.js'></script><script>
+	    $(document).ready(function(){
+	         (function poll() {
+	           setTimeout(function() {
+	                $.ajax({ url: "get.php", success: function(data) {
+	                if (data.length > 0) {
+	                var arr = data.split("|");
+	                
+	                $("#toa_0").attr("src", "img/"+arr[0]+".gif");
+	                $("#status_0").text(arr[1]);
+	                
+	                $("#toa_1").attr("src", "img/"+arr[2]+".gif");
+	                $("#status_1").text(arr[3]);
+	                
+	                $("#toa_2").attr("src", "img/"+arr[4]+".gif");
+	                $("#status_2").text(arr[5]);
+	                };
+	               }, dataType: "text", cache: false, complete: poll });
+	                    clearconsole();
+	            }, 1000);
+	        })();
+	    });
+	    function clearconsole() { 
+	  console.log(window.console);
+	  if(window.console || window.console.firebug) {
+	   //console.clear();
+	  }
+	}
+	</script>    
+</body>
+</html>

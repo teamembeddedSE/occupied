@@ -1,0 +1,4 @@
+//info
+curl "http://toa.teamembedded.se/set.php?status=1&bathroomID=2"
+
+sudo apt-get install php5-sqlit
