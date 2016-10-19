@@ -25,9 +25,7 @@ void setup() {
   //digitalWrite(GPIO2, HIGH);       // turn on pullup resistors
   Serial.begin(115200);
   delay(10);
-
   wificonnect();
-
   
 }
 
@@ -41,12 +39,15 @@ void loop() {
       delay(10);
   }
 
-  ret = doGet(SensorID, AVAILABLE);
-  delay(10);
-  if (ret == 0){
-    ESP.deepSleep(0);
+  for(;;){
+    
+      ret = doGet(SensorID, AVAILABLE);
+      delay(10);
+      if (ret == 0){
+        ESP.deepSleep(0);
+      }
+      delay(5000);
   }
-
 }
 
 
