@@ -52,6 +52,8 @@ int doGet(int SensorID, int status){
          url += status;
          url += "&VCC=";
          url += ESP.getVcc();
+         url += "&RSSI=";
+         url += WiFi.RSSI();
   
   Serial.print("Requesting URL: ");
   Serial.println(url);
